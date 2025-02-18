@@ -1,0 +1,78 @@
+class Automobile {
+    private String brand;
+    private int modelYear;
+    
+    public Automobile (int modelYear, String brand){
+    this.modelYear = modelYear;
+    this.brand = brand; 
+    }
+    public void accelerate(){
+        System.out.println("Accelerate");
+    }
+    public void stop(){
+        System.out.println("Stop");
+    }
+    public void reverse(){
+        System.out.println("Reverse");
+    }
+    public void honk(){
+        System.out.println("Honk");
+    }
+    @Override
+    public String toString(){
+        return "Automobile {"+" modelYear = "+ modelYear +", brand = " + brand +"}"; 
+    }
+    @Override
+    public boolean equals (Object obj){
+        if(this == obj) return true;
+        if(obj == null || getClass() != obj.getClass()) return false; 
+        Automobile that = (Automobile) obj;
+        return modelYear == that.modelYear && brand.equals(that.brand);
+    }
+}
+
+class Car extends Automobile {
+    public Car(int modelYear, String brand){
+        super(modelYear, brand);
+    }
+    @Override
+    public void honk(){
+        System.out.println("Car honk");
+    }
+}
+class SportsCar extends Automobile {
+    public SportsCar(int modelYear, String brand){
+        super(modelYear, brand);
+    }
+    @Override
+    public void honk(){
+        System.out.println("SportsCar honk");
+    }
+}
+class JunkCar extends Automobile {
+    public JunkCar(int modelYear, String brand){
+        super(modelYear, brand);
+    }
+    @Override
+    public void honk(){
+        System.out.println("JunkCar honk");
+    }
+}
+
+public class Tester {
+    public static void main(String[] args){
+        Automobile[] automobile = new Automobile[3];
+        automobile[0] = new Car(2024, "Honda"); 
+        automobile[1] = new SportsCar(2008, "Infiniti");
+        automobile[2] = new JunkCar(1990, "Mitsubishi");
+        
+    for (Automobile auto : automobile){
+        System.out.println(auto.toString());
+        auto.accelerate(); 
+        auto.stop();
+        auto.reverse();
+        auto.honk();
+        System.out.println(); 
+       }
+   }
+}
