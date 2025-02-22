@@ -1,9 +1,0 @@
-public class Main
-{
-	public static void main(String[] args) {
-		Circle circle = new Circle();
-		System.out.println("Circle sides: "+circle.getSides()); 
-		Rectangle rectangle = new Rectangle();
-		System.out.println("Rectangle sides: "+rectangle.getSides()); 
-	}
-}
